@@ -3,16 +3,16 @@ defmodule Exmoji.Mixfile do
 
   def project do
     [
-      app:           :exmoji,
-      version:       "0.2.2",
-      elixir:        "~> 1.1",
-      deps:          deps(),
+      app: :exmoji,
+      version: "0.2.2",
+      elixir: "~> 1.1",
+      deps: deps(),
       test_coverage: [tool: ExCoveralls],
-      name:          "Exmoji",
-      source_url:    "https://github.com/mroth/exmoji",
-      description:   description(),
-      package:       package(),
-      aliases:       aliases()
+      name: "Exmoji",
+      source_url: "https://github.com/mroth/exmoji",
+      description: description(),
+      package: package(),
+      aliases: aliases()
     ]
   end
 
@@ -24,12 +24,12 @@ defmodule Exmoji.Mixfile do
 
   defp package do
     [
-      maintainers:  [ "Matthew Rothenberg <mroth@mroth.info>" ],
-      licenses:     [ "MIT" ],
-      links:        %{
-                       "Docs"   => "https://hexdocs.pm/exmoji/",
-                       "GitHub" => "https://github.com/mroth/exmoji"
-                    }
+      maintainers: ["Matthew Rothenberg <mroth@mroth.info>"],
+      licenses: ["MIT"],
+      links: %{
+        "Docs" => "https://hexdocs.pm/exmoji/",
+        "GitHub" => "https://github.com/mroth/exmoji"
+      }
     ]
   end
 
@@ -45,23 +45,22 @@ defmodule Exmoji.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [
-      {:poison,       "~> 3.0"},
-      {:excoveralls,  "~> 0.6",                 only: :dev},
-      {:benchfella,   "~> 0.3",                 only: :dev},
-      {:earmark,      "~> 1.1",                 only: :dev},
-      {:ex_doc,       "~> 0.14",                only: :dev}
+      {:poison, "~> 1.5 or ~> 2.0 or ~> 3.0"},
+      {:excoveralls, "~> 0.6", only: :dev},
+      {:benchfella, "~> 0.3", only: :dev},
+      {:earmark, "~> 1.1", only: :dev},
+      {:ex_doc, "~> 0.14", only: :dev}
     ]
   end
 
   defp aliases do
     [
-      clean:          ["clean", &clean_docs/1, &clean_benchmarks/1],
-      "clean.docs":   [&clean_docs/1],
-      "clean.bench":  [&clean_benchmarks/1]
+      clean: ["clean", &clean_docs/1, &clean_benchmarks/1],
+      "clean.docs": [&clean_docs/1],
+      "clean.bench": [&clean_benchmarks/1]
     ]
   end
 
   defp clean_benchmarks(_), do: File.rm_rf!("bench/snapshots")
   defp clean_docs(_), do: File.rm_rf!("doc")
-
 end
